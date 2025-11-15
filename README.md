@@ -24,7 +24,7 @@ Este repositório reúne todos os artefatos, implementações e testes das disci
 ---
 
 ## 📦 Estrutura do Projeto
-
+```bash
 bookstore-platform/
 ├── dominio-comum/
 ├── componente-gestao-livro/
@@ -33,7 +33,7 @@ bookstore-platform/
 ├── aplicacao-api-rest/
 ├── demonstrador-terminal/
 └── docs/
-
+```
 ---
 
 ## 🚀 Tecnologias Utilizadas
@@ -87,17 +87,23 @@ bookstore-platform/
 ### 1. Clonar o repositório
 ```bash
 git clone https://github.com/SEU_USUARIO/bookstore-platform.git
+```
 
 ## ⚙️ Como Compilar
 
 ### Maven
 ```bash
 ./mvnw clean install
+``` 
 
 ### 🚀 Como Rodar a API
+```bash
 cd aplicacao-api-rest
 ./mvnw spring-boot:run
+```
 
 ### 📄 Swagger (Documentação da API)
+```bash
 http://localhost:8080/swagger-ui.html
+```
 
