@@ -1,4 +1,4 @@
-package enums;
+package rosa.ribeiro.jonas.livro;
 
 public enum StatusLivro {
     DISPONIVEL("disponivel"),

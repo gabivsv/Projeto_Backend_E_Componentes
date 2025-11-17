@@ -1,8 +1,8 @@
-package livros;
+package rosa.ribeiro.jonas.livro;
 
-import autores.Autor;
-import editora.Editora;
-import enums.StatusLivro;
+import rosa.ribeiro.jonas.autor.Autor;
+import rosa.ribeiro.jonas.editora.Editora;
+import rosa.ribeiro.jonas.categoria.Categoria;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -51,6 +51,50 @@ public abstract class Livro {
     private Set<Categoria> categorias;
 
     protected Livro() {
+    }
+
+    public Livro(String titulo, String isbn, int numPaginas, int anoPublicacao, String resumo, int quantidadeEstoque, BigDecimal precoBase, Editora editora, List<Autor> autores, Set<Categoria> categorias) {
+        this.titulo = titulo;
+        this.isbn = isbn;
+        this.numPaginas = numPaginas;
+        this.anoPublicacao = anoPublicacao;
+        this.resumo = resumo;
+        this.quantidadeEstoque = quantidadeEstoque;
+        this.precoBase = precoBase;
+        this.status = StatusLivro.DISPONIVEL;;
+        this.editora = editora;
+        this.autores = autores;
+        this.categorias = categorias;
+    }
+
+    public abstract BigDecimal calcularPreco();
+
+    public void decrementarEstoque(int quantidade) throws Exception {
+        if(quantidadeEstoque < quantidade){
+            throw new Exception("Não há quantidade suficiente no estoque!");
+        }
+
+        quantidadeEstoque-=quantidade;
+
+        if(verificarEstoqueMinimo()){
+            System.out.println("Atingido estoque minimo!");
+        }
+    }
+
+    public void incrementarEstoque(int quantidade) throws Exception {
+        if(quantidade < 0){
+            throw new Exception("Quantidade nao pode ser negativa!");
+        }
+
+        quantidadeEstoque+=quantidade;
+    }
+
+    public boolean verificarEstoqueMinimo(){
+        return this.quantidadeEstoque <= 2;
+    }
+
+    public void mudarStatus(StatusLivro novoStatus){
+        this.status = novoStatus;
     }
 
     public String getId() {
