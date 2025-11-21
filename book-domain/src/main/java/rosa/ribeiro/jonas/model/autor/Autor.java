@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name ="autores")
-public class AutorModel {
+public class Autor {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
@@ -21,9 +21,9 @@ public class AutorModel {
     @ManyToMany(mappedBy = "autores")
     private List<Livro> livros = new ArrayList<>();
 
-    protected AutorModel() {}
+    protected Autor() {}
 
-    public AutorModel(String nome, LocalDate dataNascimento, String nacionalidade) {
+    public Autor(String nome, LocalDate dataNascimento, String nacionalidade) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.nacionalidade = nacionalidade;

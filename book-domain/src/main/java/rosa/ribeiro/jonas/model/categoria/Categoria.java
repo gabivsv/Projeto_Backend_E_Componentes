@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "categorias")
-public class CategoriaModel {
+public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -20,9 +20,9 @@ public class CategoriaModel {
     @ManyToMany(mappedBy = "categorias")
     private Set<Livro> livros = new HashSet<>();
 
-    protected CategoriaModel() {}
+    protected Categoria() {}
 
-    public CategoriaModel(String nome) {
+    public Categoria(String nome) {
         this.nome = nome;
     }
 

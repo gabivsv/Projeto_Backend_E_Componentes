@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "editoras")
-public class EditoraModel {
+public class Editora {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
@@ -24,9 +24,9 @@ public class EditoraModel {
     @OneToMany(mappedBy = "editora")
     private List<Livro> livrosPublicados = new ArrayList<>();
 
-    protected EditoraModel() {}
+    protected Editora() {}
 
-    public EditoraModel(String nome, String cnpj, String telefone, String email) {
+    public Editora(String nome, String cnpj, String telefone, String email) {
         this.nome = nome;
         this.cnpj = cnpj;
         this.telefone = telefone;

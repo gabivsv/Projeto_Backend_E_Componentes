@@ -1,8 +1,8 @@
 package rosa.ribeiro.jonas.model.livro;
 
-import rosa.ribeiro.jonas.model.autor.AutorModel;
-import rosa.ribeiro.jonas.model.editora.EditoraModel;
-import rosa.ribeiro.jonas.model.categoria.CategoriaModel;
+import rosa.ribeiro.jonas.model.autor.Autor;
+import rosa.ribeiro.jonas.model.editora.Editora;
+import rosa.ribeiro.jonas.model.categoria.Categoria;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -32,7 +32,7 @@ public abstract class Livro {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "editora_id")
-    private EditoraModel editoraModel;
+    private Editora editora;
 
     @ManyToMany
     @JoinTable(
@@ -40,7 +40,7 @@ public abstract class Livro {
             joinColumns = @JoinColumn(name = "livro_id"),
             inverseJoinColumns = @JoinColumn(name = "autor_id")
     )
-    private List<AutorModel> autores;
+    private List<Autor> autores;
 
     @ManyToMany
     @JoinTable(
@@ -48,12 +48,12 @@ public abstract class Livro {
             joinColumns = @JoinColumn(name = "livro_id"),
             inverseJoinColumns = @JoinColumn(name = "categoria_id")
     )
-    private Set<CategoriaModel> categoriaModels;
+    private Set<Categoria> categorias;
 
     protected Livro() {
     }
 
-    public Livro(String titulo, String isbn, int numPaginas, int anoPublicacao, String resumo, int quantidadeEstoque, BigDecimal precoBase, EditoraModel editoraModel, List<AutorModel> autores, Set<CategoriaModel> categoriaModels) {
+    public Livro(String titulo, String isbn, int numPaginas, int anoPublicacao, String resumo, int quantidadeEstoque, BigDecimal precoBase, Editora editora, List<Autor> autores, Set<Categoria> categorias) {
         this.titulo = titulo;
         this.isbn = isbn;
         this.numPaginas = numPaginas;
@@ -62,9 +62,9 @@ public abstract class Livro {
         this.quantidadeEstoque = quantidadeEstoque;
         this.precoBase = precoBase;
         this.status = StatusLivro.DISPONIVEL;;
-        this.editoraModel = editoraModel;
+        this.editora = editora;
         this.autores = autores;
-        this.categoriaModels = categoriaModels;
+        this.categorias = categorias;
     }
 
     public abstract BigDecimal calcularPreco();
@@ -133,15 +133,15 @@ public abstract class Livro {
         return status;
     }
 
-    public EditoraModel getEditora() {
-        return editoraModel;
+    public Editora getEditora() {
+        return editora;
     }
 
-    public List<AutorModel> getAutores() {
+    public List<Autor> getAutores() {
         return autores;
     }
 
-    public Set<CategoriaModel> getCategorias() {
-        return categoriaModels;
+    public Set<Categoria> getCategorias() {
+        return categorias;
     }
 }
