@@ -1,4 +1,4 @@
-package rosa.ribeiro.jonas.bookdomain.orderdomain.pedido;
+package rosa.ribeiro.jonas.orderdomain.pedido;
 
 public enum StatusPedido {
     EM_PROCESSAMENTO("Em processamento"),

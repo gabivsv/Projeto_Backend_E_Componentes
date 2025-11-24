@@ -1,4 +1,4 @@
-package rosa.ribeiro.jonas.bookdomain.orderdomain.dto;
+package rosa.ribeiro.jonas.orderdomain.dto;
 
 public record DadosPagamentoDTO(String tipo, String nomeTitular, String numeroCartao, Integer parcelas) {
 }

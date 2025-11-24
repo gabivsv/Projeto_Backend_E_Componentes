@@ -1,4 +1,4 @@
-package rosa.ribeiro.jonas.bookdomain.orderdomain.pagamento;
+package rosa.ribeiro.jonas.orderdomain.pagamento;
 
 public enum StatusPagamento {
     PENDENTE("pendente"),

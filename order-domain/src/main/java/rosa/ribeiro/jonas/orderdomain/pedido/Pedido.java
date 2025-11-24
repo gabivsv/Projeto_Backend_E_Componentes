@@ -1,4 +1,4 @@
-package rosa.ribeiro.jonas.bookdomain.orderdomain.pedido;
+package rosa.ribeiro.jonas.orderdomain.pedido;
 
 
 import jakarta.persistence.*;

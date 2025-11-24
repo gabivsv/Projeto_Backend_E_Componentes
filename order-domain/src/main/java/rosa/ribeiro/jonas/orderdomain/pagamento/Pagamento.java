@@ -1,8 +1,8 @@
-package rosa.ribeiro.jonas.bookdomain.orderdomain.pagamento;
+package rosa.ribeiro.jonas.orderdomain.pagamento;
 
 
 import jakarta.persistence.*;
-import rosa.ribeiro.jonas.bookdomain.orderdomain.pedido.Pedido;
+import rosa.ribeiro.jonas.orderdomain.pedido.Pedido;
 
 import java.math.BigDecimal;
 
