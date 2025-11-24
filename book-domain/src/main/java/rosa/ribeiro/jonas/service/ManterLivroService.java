@@ -55,4 +55,15 @@ public class ManterLivroService {
         }
     }
 
+    @Transactional
+    public void baixarEstoque(String id, int quantidade) {
+        Livro livro = buscarPorId(id);
+        try {
+            livro.decrementarEstoque(quantidade);
+            livroRepository.save(livro);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Erro ao baixar estoque: " + e.getMessage());
+        }
+    }
+
 }
