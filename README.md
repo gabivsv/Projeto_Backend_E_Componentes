@@ -122,7 +122,7 @@ bookstore-platform/
 ├── book-domain/           # Componente de Gestão de Livros (Catálogo/Estoque)
 ├── customer-domain/       # Componente de Gestão de Clientes
 ├── order-domain/          # Componente de Gestão de Pedidos (Core Business)
-├── common-domain/         # (Opcional) Classes utilitárias compartilhadas
+├── common-domain/         # Componente de Infraestrutura e Serviços Compartilhados (Frete/Email)
 ├── api-rest/              # Aplicação Spring Boot (API Gateway/Controller)
 └── pom.xml                # Parent POM (Gerenciamento de Dependências)
 ```
@@ -137,6 +137,11 @@ bookstore-platform/
 -   **Banco de Dados:**
     -   *Produção:* MySQL 8.0 (Driver 8.4.0)
     -   *Testes:* H2 Database (Em memória)
+-   **Serviços e Integrações Externas**
+    - *ViaCEP:* Utilizado para consulta de endereços e cálculo lógico de frete por região. 
+    - *MailHog:* Ambiente local para captura e inspeção de e-mails enviados. 
+    - *Spring Mail:* Estrutura configurada para envio de notificações, como alertas de estoque.
+
 -   **Testes:** JUnit 5 (Jupiter), Mockito, AssertJ
 -   **Build:** Maven
 -   **Documentação:** SpringDoc OpenAPI (Swagger UI)
