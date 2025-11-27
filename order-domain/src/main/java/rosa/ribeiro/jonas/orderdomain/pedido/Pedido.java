@@ -69,7 +69,6 @@ public class Pedido {
         this.status = novoStatus;
     }
 
-    // Getters
     public String getId() { return id; }
     public LocalDateTime getDataPedido() { return dataPedido; }
     public StatusPedido getStatus() { return status; }
